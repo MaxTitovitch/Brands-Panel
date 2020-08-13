@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use TCG\Voyager\Facades\Voyager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Voyager::addAction(\App\Actions\ContactsAction::class);
+        Voyager::addAction(\App\Actions\RatingsAction::class);
+        Voyager::addAction(\App\Actions\FaqsAction::class);
+        Voyager::addAction(\App\Actions\ScorecardsAction::class);
+        Voyager::addAction(\App\Actions\StatisticsAction::class);
+        Voyager::addAction(\App\Actions\StrengthsAction::class);
     }
 }
