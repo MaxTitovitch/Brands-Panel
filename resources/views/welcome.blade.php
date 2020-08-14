@@ -39,7 +39,7 @@
         <div class="brands-link">
             {{ $brands->links() }}
         </div>
-        <h2><a href="{{ route('voyager.dashboard') }}">Admin Panel</a></h2>
+        <h2 class="text-align-center"><a href="{{ route('voyager.dashboard') }}">Admin Panel</a></h2>
     </div>
 @endsection
 
