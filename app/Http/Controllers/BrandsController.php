@@ -9,7 +9,11 @@ class BrandsController extends Controller
 {
     public function index () {
         $brands = Brand::withCount('ratings')->paginate(25);
-        return view('welcome', ['brands' => $brands]);
+        if(count($brands) !== 0) {
+            return view('welcome', ['brands' => $brands]);
+        } else {
+            return redirect()->route('user-welcome');
+        }
     }
 
     public function show ($id) {
