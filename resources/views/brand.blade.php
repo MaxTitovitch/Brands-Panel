@@ -365,7 +365,7 @@
                         <section>
                             <p class="accordion-name">
                                 <span>{{ $scorecard->name }}</span>
-                                <span class="brand-badge {{ $scorecard->value == 'Yes' ? 'brand-badge-dark' : '' }}">{{ $scorecard->value }}</span>
+                                <span class="brand-badge {{ $scorecard->value == 'Yes' ? 'brand-badge-dark' : '' }}">{{ $scorecard->value == '' ? "?" :  $scorecard->value}}</span>
                             </p>
                         </section>
                     @endforeach
