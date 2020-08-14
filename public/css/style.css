@@ -1,0 +1,258 @@
+.rating {
+    --star-size: 2;
+    padding: 0;
+    border: none;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    font-size: calc(var(--star-size) * 1em);
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.rating > label {
+    display: inline-block;
+    position: relative;
+    width: calc(var(--star-size) / 3 * 1.1em);
+}
+
+input:checked ~ label {
+    color: transparent;
+}
+input:checked ~ label:before {
+    content: "★";
+    position: absolute;
+    color: gold;
+}
+
+.rating > input {
+    position: relative;
+    transform: scale(var(--star-size));
+    top: calc(var(--star-size) / 6 * -1em);
+    margin-left: calc(var(--star-size) / 6 * -5em);
+    z-index: 2;
+    opacity: 0;
+    font-size: initial;
+}
+
+.brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: end;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.brands-container>.brand-item {
+    width: 20%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.brands-container>.brand-item:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    cursor: pointer;
+}
+
+.brands-container>.brand-item>div {
+    margin: 5%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.brands-container>.brand-item>div>* {
+    width: 100%;
+    text-align: center;
+}
+amp-img {
+    width: 100%;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+h2>a, h2, h1>a, h1 {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+h2>a:hover, h1>a:hover {
+    opacity: 0.6;
+}
+
+.brands-link {
+    margin-top: 20px;
+    width: 100%;
+}
+
+ul.pagination {
+    display: inline-block;
+    padding-inline-start: 0;
+    width: 100%;
+    text-align: center;
+}
+
+ul.pagination li {
+    display: inline;
+}
+
+ul.pagination li>* {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+ul.pagination li.disabled {
+    opacity: 0.5;
+}
+
+ul.pagination li.active>* {
+    background-color: black;
+    color: white;
+}
+
+ul.pagination li:hover:not(.active):not(.disabled)>* {
+    background-color: #ddd;
+}
+
+ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
+    cursor: default;
+}
+
+.action-list a{
+    padding: 10px;
+}
+
+.brand-cart {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: end;
+}
+
+.brand-cart .brand-side {
+    width: 25%;
+}
+
+.brand-cart .brand-main {
+    width: 75%;
+}
+
+.brand-gray{
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: gray;
+}
+
+.image-container, .brand-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.brand-side>* {
+    width: 100%;
+    text-align: center;
+}
+
+.brand-section {
+    margin-top: 10px;
+}
+
+.brand-badge {
+    background: white;
+    color: black;
+    text-align: left;
+    padding: 1px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid gray;
+}
+
+.brand-badge-dark {
+    background: black;
+    color: white;
+    border: 0;
+}
+
+.accordion-name {
+    padding-left: 10px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.user-text a{
+    color: #62a8ea;
+    text-decoration: none;
+}
+
+.brand-section {
+    padding-left: 10px;
+    text-align: justify;
+}
+
+.statistic-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.statistic-section>* {
+    display: flex;
+    width: 12.5%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    flex-basis: 12.5%;
+    justify-content: space-between;
+}
+
+.statistic-value {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-text {
+    font-size: 2em;
+}
+
+.statistic-item>* {
+    width: 100%;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.brand-strength {
+    margin-left: 20px;
+}
+.brand-strength span:before{
+    color: #98cb00;
+    display: inline-block;
+    font: normal 20px/20px helvetica;
+    width: 30px;
+    content: '✔';
+}
+
+.rating-inline {
+    display: inline;
+    --star-size: 1;
+    margin-left: 10px;
+}
+
+.brand-rating {
+    margin-bottom: 20px;
+}
