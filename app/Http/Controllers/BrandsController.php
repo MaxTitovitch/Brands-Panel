@@ -8,7 +8,7 @@ use App\Brand;
 class BrandsController extends Controller
 {
     public function index () {
-        $brands = Brand::withCount('ratings')->paginate(25);
+        $brands = Brand::paginate(25);
         if(count($brands) !== 0) {
             return view('welcome', ['brands' => $brands]);
         } else {

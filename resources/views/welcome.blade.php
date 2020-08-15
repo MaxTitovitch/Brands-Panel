@@ -32,7 +32,7 @@
                         <input name="rating-{{ $brand->id }}" type="radio" disabled="disabled" {{ $brand->rated == 1 ? 'checked="checked"' : '' }} id="rating1" value="1">
                         <label for="rating1">☆</label>
                     </fieldset>
-                    <p>{{ $brand->ratings_count }} ratings</p>
+                    <p>{{ $brand->reviews }} ratings</p>
                 </div>
             </div>
         @endforeach
