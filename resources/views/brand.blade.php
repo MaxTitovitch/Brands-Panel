@@ -4,13 +4,20 @@
    {{ $brand->name }} | BRAND
 @endsection
 
+@section('link')
+    <span> &gt; </span>
+    <a href="{{ route('user-brand', ['id' => $brand->id]) }}">{{ $brand->name }} Review</a>
+@endsection
+
+
+
 @section('content')
     <div class="brands-container">
-        <div class="brand-cart">
+        <div class="brand-cart container1200">
             <div class="brand-side">
                 <div class="image-container">
                     <a class="brand-gray" href="https://{{ $brand->link }}" target="_blank">
-                        <amp-img src="{{ $brand->slug }}" alt="Welcome" height="150"></amp-img>
+                        <amp-img src="{{ $brand->slug }}" alt="Welcome" width="150" height="100"></amp-img>
                     </a>
                     <a class="brand-gray" href="https://{{ $brand->link }}" target="_blank">
                         {{ $brand->link }}
@@ -61,13 +68,13 @@
                     Rated: <strong>{{ $brand->rated }}</strong> - {{ $brand->reviews }} reviews
                 </span>
                 <div class="brand-section">
-                    <h2 class="text-align-center">About {{ $brand->name }}</h2>
+                    <h3>About {{ $brand->name }}</h3>
                     <div class="user-text">
                         {!! $brand->about !!}
                     </div>
                 </div>
                 <div class="brand-section">
-                    <h2>{{ $brand->name }} Review Scorecard</h2>
+                    <h3>{{ $brand->name }} Review Scorecard</h3>
                     <div>
                         @foreach($brand->scorecards as $scorecard)
                             <div>
@@ -80,7 +87,7 @@
                     </div>
                 </div>
                 <div class="brand-section">
-                    <h2>{{ $brand->name }} Contacts</h2>
+                    <h3>{{ $brand->name }} Contacts</h3>
                     <div>
                         @foreach($brand->contacts as $contact)
                             <div>
@@ -94,7 +101,7 @@
             </div>
             <div class="brand-main">
                 <div class="brand-section">
-                    <h1><a href="https://{{ $brand->link }}" target="_blank">{{ $brand->name }}</a></h1>
+                    <h1>{{ $brand->name }} Review</h1>
                     <div class="user-text">
                         {!! $brand->description !!}
                     </div>
@@ -103,10 +110,11 @@
                     <div class="statistic-section">
                         @foreach($brand->statistics as $statistic)
                             <div class="statistic-item user-text">
+                                <span class="brand-gray mt-15">{{ $statistic->name }}</span>
                                 <div class="statistic-value">
                                     @if($statistic->name == 'Overall Score')
                                         <span class="image-text">
-                                            <strong><big>{{ $statistic->value }}</big></strong> / 5
+                                            <strong><big>{{ $statistic->value }}</big></strong><small>/5</small>
                                         </span>
                                     @elseif($statistic->name == 'Active Promo Codes')
                                         <span class="image-text">
@@ -122,16 +130,15 @@
                                                  onclick="return false"></amp-img>
                                     @endif
                                 </div>
-                                <span class="brand-gray">{{ $statistic->name }}</span>
                                 <a href="{{ $statistic->link }}" target="_blank">View it</a>
                             </div>
                         @endforeach
                     </div>
                 </div>
                 <div class="brand-section">
-                    <h2>{{ $brand->name }} Review</h2>
+                    <h2>{{ $brand->name }} Review: {{ $brand->name }} Pros & Cons</h2>
                     <div class="user-text">
-                        {!! $brand->review !!}
+                        {!! explode('Knoji has ', $brand->review)[0] !!}
                         <p><strong>{{ $brand->name }}</strong> strengths are:</p>
                         @foreach($brand->strengths as $strength)
                             <div class="brand-strength">
@@ -140,6 +147,7 @@
                                 </p>
                             </div>
                         @endforeach
+                        {!! explode(' more details.', $brand->review)[1] !!}
                     </div>
                 </div>
                 <div class="brand-section">
@@ -189,6 +197,7 @@
                                            value="1">
                                     <label for="rating1">☆</label>
                                 </fieldset>
+                                <span class="brand-gray">{{ $rating->star }} starts</span>
                                 <div class="user-text">
                                     {!! $rating->description !!}
                                 </div>
@@ -204,7 +213,7 @@
                                 <strong>{{ $faq->name }}</strong>
                                 <div class="user-text">
                                     {{ $faq->value }}
-                                    <a href="{{ $faq->link }}" target="_blank">Show it</a>
+                                    <a href="{{ $faq->link }}" target="_blank">See answers</a>
                                 </div>
                             </div>
                         @endforeach
@@ -213,9 +222,5 @@
             </div>
 
         </div>
-        <h2 class="action-list text-align-center">
-            <a href="{{ route('user-welcome') }}">BRAND LIST</a>
-            <a href="{{ route('voyager.dashboard') }}">Admin Panel</a>
-        </h2>
     </div>
 @endsection

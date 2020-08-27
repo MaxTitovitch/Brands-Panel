@@ -1,5 +1,83 @@
+/* Обычный */
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/font.ttf);
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+header {
+    width: 100%;
+    z-index: 10000;
+    background: white;
+    opacity: 1;
+}
+
+header .first-header {
+    background: black;
+    display: flex;
+}
+
+
+header .first-header a {
+    color: white;
+    font-size: 13px;
+    margin: auto 12px;
+    text-decoration: none;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.header-spacer {
+    flex: 1;
+}
+
+.second-data {
+    width: auto;
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.second-data a{
+    margin: auto 10px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+.second-data *:hover{
+    color: #049FFC;
+}
+
+
+header .first-header a:hover {
+    color: #FFC800;
+}
+
+header .first-header a.font-weight-bold, header .second-header a.font-weight-bold, .font-weight-bold {
+    font-weight: bold;
+}
+
+.header-link {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.header-link:hover {
+    cursor: pointer;
+}
+
+.container1200 {
+    max-width: 1200px;
+    margin: auto;
+}
+
 .rating {
-    --star-size: 2;
+    --star-size: 1.2;
     padding: 0;
     border: none;
     unicode-bidi: bidi-override;
@@ -8,9 +86,11 @@
     margin-bottom: 0.5em;
     cursor: pointer;
     text-align: center;
+    padding-left: 10px;
 }
 
 .rating > label {
+    color: white;
     display: inline-block;
     position: relative;
     width: calc(var(--star-size) / 3 * 1.1em);
@@ -46,13 +126,14 @@ input:checked ~ label:before {
 
 .brands-container>.brand-item {
     width: 20%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.brands-container>.brand-item>div>.image-container {
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.brands-container>.brand-item:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    cursor: pointer;
+.section-main {
+    padding-right: 20%;
 }
 
 .brands-container>.brand-item>div {
@@ -72,19 +153,40 @@ amp-img {
     width: 100%;
 }
 
-h2 {
-    margin-top: 40px;
+small {
+    opacity: 0.5;
+    font-size: 0.55em;
+    font-weight: 700;
 }
 
-h2>a, h2, h1>a, h1 {
+h3 {
+    margin-top: 40px;
+    font-size: 17px;
+}
+
+.no-line {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h4 {
+    font-size: 13px;
+}
+
+h2 {
+    margin-top: 60px;
+    font-size: 25px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2>a, h2, h1>a, h1, h3>a, h4>a {
     color: black;
     text-decoration: none;
     text-align: left;
     width: 100%;
-}
-
-h1>a, h1 {
-    text-align: center;
 }
 
 h2>a:hover, h1>a:hover {
@@ -100,7 +202,12 @@ ul.pagination {
     display: inline-block;
     padding-inline-start: 0;
     width: 100%;
-    text-align: center;
+    margin-top: 40px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 ul.pagination li {
@@ -108,11 +215,11 @@ ul.pagination li {
 }
 
 ul.pagination li>* {
-    color: black;
-    padding: 8px 16px;
+    color: gray;
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    border: 1px solid #C6C6C6;
 }
 
 ul.pagination li.disabled {
@@ -120,8 +227,9 @@ ul.pagination li.disabled {
 }
 
 ul.pagination li.active>* {
-    background-color: black;
-    color: white;
+    border: 0;
+    color: gray;
+    font-weight: bold;
 }
 
 ul.pagination li:hover:not(.active):not(.disabled)>* {
@@ -145,11 +253,18 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
 }
 
 .brand-cart .brand-side {
-    width: 25%;
+    width: 300px;
+}
+.brand-cart .brand-side.brand-side-welcome {
+    width: 200px;
 }
 
 .brand-cart .brand-main {
-    width: 75%;
+    max-width: 900px;
+}
+
+.brand-cart .brand-main.brand-main-welcome {
+    max-width: 1000px;
 }
 
 .brand-gray{
@@ -157,6 +272,7 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
     text-align: center;
     text-decoration: none;
     color: gray;
+    font-size: 13px;
 }
 
 .image-container, .brand-side {
@@ -164,6 +280,7 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
 .brand-side>* {
@@ -179,7 +296,7 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
     background: white;
     color: black;
     text-align: left;
-    padding: 1px 10px;
+    padding: 1px 6px;
     border-radius: 5px;
     display: inline-block;
     border: 1px solid gray;
@@ -195,21 +312,25 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
     padding-left: 10px;
     text-align: left;
     font-weight: normal;
+    font-size: 13px;
 }
 
-.user-text a{
-    color: #62a8ea;
+.user-text a {
+    color: #62A8EA;
     text-decoration: none;
+}
+.user-text {
+    font-size: 13px;
 }
 
 .brand-section {
     padding-left: 10px;
-    text-align: justify;
+    text-align: left;
 }
 
 .statistic-section {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     flex-wrap: wrap;
 }
 
@@ -220,14 +341,20 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
     flex-direction: column;
     text-align: center;
     flex-basis: 12.5%;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .statistic-value {
     height: 75px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
+    flex: 1;
+    align-items: flex-end;
+}
+
+.statistic-value span {
+    margin-bottom: 20px;
 }
 
 .image-text {
@@ -236,25 +363,26 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
 
 .statistic-item>* {
     width: 100%;
-    display: inline-block;
-    margin-top: 5px;
 }
 
+.mt-15 {
+    margin-top: 15px;
+}
 .brand-strength {
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
 .brand-strength span:before{
     color: #98cb00;
     display: inline-block;
     font: normal 20px/20px helvetica;
-    width: 30px;
+    width: 20px;
     content: '✔';
+    text-align: left;
 }
 
 .rating-inline {
     display: inline;
-    --star-size: 1;
-    margin-left: 10px;
+    --star-size: 1.5;
 }
 
 .brand-rating {
@@ -264,3 +392,41 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
 .text-align-center {
     text-align: center;
 }
+
+.search {
+    width: 96%;
+    margin: 50px auto auto auto;
+}
+
+.search input {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 17px;
+    border: 1px solid #C6C6C6;
+}
+
+.search input:focus {
+    outline:none;
+}
+
+.links {
+    margin: 30px auto;
+    width: 100%;
+}
+
+.links a.link-active{
+    border: 1px solid #62A8EA;
+    border-radius: 20px;
+}
+
+.links a{
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.text-dark {
+    color: black;
+    font-size: 13px;
+}
+

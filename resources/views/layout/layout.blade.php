@@ -17,6 +17,22 @@
     <style amp-custom> @import url('css/style.css'); </style>
 </head>
 <body>
+    <header>
+        <div class="first-header">
+            <a href="{{ route('user-welcome') }}">Home</a>
+            <span class="header-spacer"></span>
+            <a class="font-weight-bold" href="{{ route('voyager.login') }}">Sing In</a>
+        </div>
+        <div class="second-header">
+            <div class="second-data">
+                <amp-img src="{{ asset('img/icon.png') }}" alt="Brand Panel" height="40" width="40" onclick="return false"></amp-img>
+                <a class="font-weight-bold" href="{{ route('user-welcome') }}">Brand Panel</a>
+                @section('link')
+                @show
+            </div>
+        </div>
+    </header>
+
     @section('content')
     @show
 
@@ -24,7 +40,7 @@
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 
-    @section('script')
-    @show
+
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

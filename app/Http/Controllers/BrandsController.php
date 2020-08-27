@@ -7,13 +7,17 @@ use App\Brand;
 
 class BrandsController extends Controller
 {
-    public function index () {
-        $brands = Brand::paginate(25);
-        if(count($brands) !== 0) {
-            return view('welcome', ['brands' => $brands]);
+    public function index (Request $request) {
+        $sort = $request->sort ?? 'id';
+        $query = $request->search ?? null;
+        if(!$query) {
+            $brands = Brand::orderBy($sort)->paginate(100);
         } else {
-            return redirect()->route('user-welcome');
+            $brands = Brand::where('name', 'like', "%$query%")->orderBy($sort)->paginate(25);
         }
+        $brands->withPath($request->getRequestUri());
+
+        return view('welcome', ['brands' => $brands, 'sort' => $sort, 'search' => $query]);
     }
 
     public function show ($id) {
