@@ -32,11 +32,11 @@
                 @foreach($brands as $brand)
                     <div class="brand-item">
                         <div>
-                            <div class="image-container">
+                            <div class="image-container brand-linked-image" data-href="{{ route('user-brand', ['id' => $brand->id]) }}">
                                 <amp-img src="{{ $brand->slug }}" alt="Welcome" height="100"
                                          onclick="return false"></amp-img>
                             </div>
-                            <h4 class="header-link no-line"><a href="{{ route('user-brand', ['id', $brand->id]) }}">{{ $brand->name }}</a></h4>
+                            <h4 class="header-link no-line"><a href="{{ route('user-brand', ['id' => $brand->id]) }}">{{ $brand->name }}</a></h4>
                             <fieldset class="rating" title="Rated: {{ $brand->rated }} star">
                                 <input name="rating-{{ $brand->id }}" type="radio" disabled="disabled"
                                        {{ $brand->rated == 5 ? 'checked="checked"' : '' }}id="rating5" value="5">

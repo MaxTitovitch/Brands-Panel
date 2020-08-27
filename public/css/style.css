@@ -430,3 +430,7 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
     font-size: 13px;
 }
 
+.brand-linked-image {
+    cursor: pointer;
+}
+
