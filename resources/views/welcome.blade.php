@@ -29,7 +29,7 @@
                 <a class="brand-gray {{ $sort == 'name' ? 'link-active' : '' }}" href="{{ route('user-welcome') . '?sort=name'. ($search ? "&search=$search" : '') }}">Alphabetical</a>
             </div>
             <div class="brands-container">
-                @foreach($brands as $brand)
+                @forelse ($brands as $brand)
                     <div class="brand-item">
                         <div>
                             <div class="image-container brand-linked-image" data-href="{{ route('user-brand', ['id' => $brand->id]) }}">
@@ -61,7 +61,12 @@
                             <p class="brand-gray no-line">{{ $brand->reviews }} ratings</p>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="no-brands">
+                        No brands found
+                    </div>
+                @endforelse
+
                 <div class="brands-link">
                     {{ $brands->links() }}
                 </div>
