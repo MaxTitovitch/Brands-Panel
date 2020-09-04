@@ -12,14 +12,15 @@
 
     <script type="application/ld+json">{"@context": "http://schema.org","@type": "NewsArticle", "headline": "Open-source framework for publishing content","datePublished": "2015-10-07T12:02:41Z","image": ["logo.jpg"]} </script>
 
-    <style amp-boilerplate>@import url('css/amp-logic.css');</style>
-    <noscript><style amp-boilerplate>@import url('css/amp-noscript.css');</style></noscript>
-    <style amp-custom> @import url('css/style.css'); </style>
+    <style amp-boilerplate>@import url('/css/amp-logic.css');</style>
+    <noscript><style amp-boilerplate>@import url('/css/amp-noscript.css');</style></noscript>
+    <style amp-custom> @import url('/css/style.css'); </style>
 </head>
 <body>
     <header>
         <div class="first-header">
             <a href="{{ route('user-welcome') }}">Home</a>
+            <a href="{{ route('user-affiliate') }}">Affiliate Programs</a>
             <span class="header-spacer"></span>
             <a class="font-weight-bold" href="{{ route('voyager.login') }}">Sing In</a>
         </div>

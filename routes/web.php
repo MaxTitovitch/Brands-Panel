@@ -18,4 +18,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/', 'BrandsController@index')->name('user-welcome');
-Route::get('/{id}', 'BrandsController@show')->name('user-brand');
+Route::get('/brand/{id}', 'BrandsController@show')->name('user-brand');
+
+Route::get('/affiliate-programs', 'BrandsController@indexAffiliate')->name('user-affiliate');
+Route::get('/affiliate-programs/{id}', 'BrandsController@showAffiliate')->name('user-affiliate-one');

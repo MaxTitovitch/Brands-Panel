@@ -29,4 +29,9 @@ class Brand extends Model
     public function strengths() {
         return $this->hasMany('App\Strength');
     }
+
+    public function affiliateProgram()
+    {
+        return $this->hasOne('App\AffiliateProgram');
+    }
 }

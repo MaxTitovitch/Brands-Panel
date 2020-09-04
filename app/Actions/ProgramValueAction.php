@@ -4,11 +4,11 @@ namespace App\Actions;
 
 use TCG\Voyager\Actions\AbstractAction;
 
-class AffiliateProgramAction extends AbstractAction
+class ProgramValueAction extends AbstractAction
 {
     public function getTitle()
     {
-        return 'Affiliate';
+        return 'Values';
     }
 
     public function getIcon()
@@ -25,17 +25,17 @@ class AffiliateProgramAction extends AbstractAction
     {
         return [
             'style' => 'margin-right: 5px; margin-top 2px; ',
-            'class' => 'btn btn-sm btn-success pull-right view',
+            'class' => 'btn btn-sm btn-dark pull-right view',
         ];
     }
 
     public function getDefaultRoute()
     {
-        return route('voyager.affiliate-programs.index', ['key' => 'brand_id', 'filter' => 'equals', 's' => $this->data->id]);
+        return route('voyager.program-values.index', ['key' => 'affiliate_program_id', 'filter' => 'equals', 's' => $this->data->id]);
     }
 
     public function shouldActionDisplayOnDataType()
     {
-        return $this->dataType->slug == 'brands';
+        return $this->dataType->slug == 'affiliate-programs';
     }
 }

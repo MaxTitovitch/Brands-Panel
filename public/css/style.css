@@ -180,6 +180,7 @@ h2 {
 
 h1 {
     font-size: 30px;
+    line-height: 1.1;
 }
 
 h2>a, h2, h1>a, h1, h3>a, h4>a {
@@ -441,6 +442,64 @@ ul.pagination li.active:hover,ul.pagination li.disabled:hover  {
 
 .brand-linked-image {
     cursor: pointer;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.detail-button {
+    background-color: #049FFC;
+    font-size: 13px;
+    padding: 7px 20px;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.detail-button:hover {
+    background-color: #15affd;
+}
+
+.btn-update {
+    background: #FFB13C;
+    border: solid 1px #FFB13C;
+    display: inline-block;
+    padding: 1px 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.ul-value li {
+    list-style-type: none;
+    padding-left: 20px;
+}
+.ul-value li:before {
+    content: "—";
+    font-size: 18px;
+    font-weight: 700;
+    color: gray;
+}
+
+.yes-value {
+    background: #85BA21;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    font-size: 11px;
 }
 
 @media screen and (max-width:768px) {

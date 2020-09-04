@@ -4,10 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Brand;
+use App\AffiliateProgram;
 
 class BrandsController extends Controller
 {
-    public function index (Request $request) {
+
+    public function index(Request $request) {
+        return $this->prepareBrandsPage($request, false);
+    }
+
+    public function indexAffiliate(Request $request) {
+        return $this->prepareBrandsPage($request, true);
+    }
+
+    public function show ($id) {
+        return $this->prepareBrandPage($id, 'user-welcome', 'brand');
+    }
+
+    public function showAffiliate ($id) {
+        return $this->prepareBrandPage(AffiliateProgram::find($id)->brand->id, 'user-affiliate-one', 'affiliate');
+    }
+
+
+    private function prepareBrandsPage($request, $detail) {
         $sort = $request->sort ?? 'id';
         $query = $request->search ?? null;
         if(!$query) {
@@ -17,15 +36,15 @@ class BrandsController extends Controller
         }
         $brands->withPath($request->getRequestUri());
 
-        return view('welcome', ['brands' => $brands, 'sort' => $sort, 'search' => $query]);
+        return view('welcome', ['brands' => $brands, 'sort' => $sort, 'search' => $query, 'detail' => $detail]);
     }
 
-    public function show ($id) {
+    private function prepareBrandPage($id, $path, $view) {
         $brand = Brand::find($id);
         if($brand) {
-            return view('brand', ['brand' => $brand]);
+            return view($view, ['brand' => $brand]);
         } else {
-            return redirect()->route('user-welcome');
+            return redirect()->route($path);
         }
     }
 }
