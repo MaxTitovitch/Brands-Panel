@@ -213,6 +213,7 @@ img {
 
 ul.pagination li {
     display: inline;
+    line-height: 3;
 }
 
 ul.pagination li>* {

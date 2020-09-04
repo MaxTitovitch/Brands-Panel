@@ -34,7 +34,7 @@ class BrandsController extends Controller
         } else {
             $brands = Brand::where('name', 'like', "%$query%")->orderBy($sort)->paginate(25);
         }
-        $brands->withPath($request->getRequestUri());
+        $brands->withPath(preg_replace('/\&*page=\d+/i', '', $request->getRequestUri()));
 
         return view('welcome', ['brands' => $brands, 'sort' => $sort, 'search' => $query, 'detail' => $detail]);
     }

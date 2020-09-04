@@ -84,7 +84,7 @@
                 @endforelse
 
                 <div class="brands-link">
-                    {{ $brands->links() }}
+                    @include('layout.pagination', ['paginator' => $brands, 'quantity' => 2])
                 </div>
             </div>
         </div>
