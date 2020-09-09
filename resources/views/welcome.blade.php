@@ -41,7 +41,6 @@
             </div>
             <div class="brands-container">
                 @forelse ($brands as $brand)
-                    @if(!$detail || $brand->affiliateProgram)
                     <div class="brand-item">
                         <div>
                             <div class="image-container brand-linked-image" data-href="{{ route('user-brand', ['id' => $brand->id]) }}">
@@ -76,7 +75,6 @@
                             @endif
                         </div>
                     </div>
-                    @endif
                 @empty
                     <div class="no-brands">
                         No brands found
