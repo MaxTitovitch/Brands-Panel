@@ -8,7 +8,7 @@
     <span> &gt; </span>
     <a href="{{ route('user-brand', ['id' => $brand->id]) }}">{{ $brand->name }}</a>
     <span> &gt; </span>
-    <a href="{{ route('user-affiliate-one', ['id' => $brand->affiliateProgram->id]) }}">Reviews</a>
+    <a href="{{ route('user-affiliate-one', ['slug' => Str::slug($brand->name). '-affiliate-programs'] ) }}">Reviews</a>
 @endsection
 
 

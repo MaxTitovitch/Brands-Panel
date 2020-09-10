@@ -21,10 +21,10 @@ class BrandsController extends Controller
         return $this->prepareBrandPage($id, 'user-welcome', 'brand');
     }
 
-    public function showAffiliate ($id) {
-        return $this->prepareBrandPage(AffiliateProgram::find($id)->brand->id, 'user-affiliate-one', 'affiliate');
+    public function showAffiliate ($slug) {
+        $slug = str_replace('-affiliate-programs','', $slug);
+        return $this->prepareBrandPage(AffiliateProgram::findBySlug($slug)->brand->id, 'user-affiliate-one', 'affiliate');
     }
-
 
     private function prepareBrandsPage($request, $detail) {
         $sort = $request->sort ?? 'id';

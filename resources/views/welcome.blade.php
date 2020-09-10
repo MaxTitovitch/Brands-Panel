@@ -71,7 +71,7 @@
                             </fieldset>
                             <p class="brand-gray no-line">{{ $brand->reviews }} ratings</p>
                             @if($detail && $brand->affiliateProgram)
-                                <a class="detail-button" href="{{ route('user-affiliate-one', ['id' => $brand->affiliateProgram->id]) }}">View details</a>
+                                <a class="detail-button" href="{{ route('user-affiliate-one', ['slug' => Str::slug(str_replace('\'', '1',$brand->name)) . '-affiliate-programs']) }}">View details</a>
                             @endif
                         </div>
                     </div>

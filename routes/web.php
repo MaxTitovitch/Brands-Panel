@@ -21,4 +21,6 @@ Route::get('/', 'BrandsController@index')->name('user-welcome');
 Route::get('/brand/{id}', 'BrandsController@show')->name('user-brand');
 
 Route::get('/affiliate-programs', 'BrandsController@indexAffiliate')->name('user-affiliate');
-Route::get('/affiliate-programs/{id}', 'BrandsController@showAffiliate')->name('user-affiliate-one');
+//Route::get('/affiliate-programs/{id}', 'BrandsController@showAffiliate')->name('user-affiliate-one');
+Route::get('/questions/{slug}', 'BrandsController@showAffiliate')
+    ->name('user-affiliate-one')->where('name', '[A-Za-z0-9\\-]+');
