@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Brand;
 use App\AffiliateProgram;
+use Illuminate\Support\Str;
 
 class BrandsController extends Controller
 {
@@ -24,6 +25,16 @@ class BrandsController extends Controller
     public function showAffiliate ($slug) {
         $slug = str_replace('-affiliate-programs','', $slug);
         return $this->prepareBrandPage(AffiliateProgram::findBySlug($slug)->brand->id, 'user-affiliate-one', 'affiliate');
+    }
+
+    public function indexAffiliatePrint () {
+        $affiliateProgram = AffiliateProgram::all();
+        header('Content-type: application/txt');
+        header('Content-Disposition: attachment; filename="result.csv"');
+
+        foreach ($affiliateProgram as $program) {
+            echo 'http://scalechannel.com/questions/' . Str::slug(str_replace('\'', '1', $program->brand->name)) . ';' . $program->brand->name . "\r\n";
+        }
     }
 
     private function prepareBrandsPage($request, $detail) {
