@@ -113,9 +113,15 @@
                                 <span class="brand-gray mt-15">{{ $statistic->name }}</span>
                                 <div class="statistic-value">
                                     @if($statistic->name == 'Overall Score')
-                                        <span class="image-text">
-                                            <strong><big>{{ $statistic->value }}</big></strong><small>/5</small>
-                                        </span>
+                                        @if(trim($statistic->value) == 'yet.')
+                                            <span class="image-text">
+                                                <strong title="{{ $brand->name }} does not have enough ratings information to provide an overall score yet."><big>_</big></strong>
+                                            </span>
+                                        @else
+                                            <span class="image-text">
+                                                <strong><big>{{ $statistic->value }}</big></strong><small>/5</small>
+                                            </span>
+                                        @endif
                                     @elseif($statistic->name == 'Active Promo Codes')
                                         <span class="image-text">
                                             <strong><big>{{ $statistic->value }}</big></strong>
@@ -147,7 +153,12 @@
                                 </p>
                             </div>
                         @endforeach
-                        {!! explode(' more details.', $brand->review)[1] !!}
+                        @php
+                            $reviewDetails = explode(' more details.', $brand->review);
+                            if(count($reviewDetails) >= 2) {
+                                echo $reviewDetails[1];
+                            }
+                        @endphp
                     </div>
                 </div>
                 <div class="brand-section">
